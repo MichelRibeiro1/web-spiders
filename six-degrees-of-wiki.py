@@ -9,7 +9,7 @@ def getLinks(article_url):
 	bs0bj = BeautifulSoup(html, "lxml")
 	return bs0bj.find("div", {"id": "bodyContent"}).findAll("a", {"href": re.compile("^(/wiki/)((?!:).)*$")})
 
-links = getLinks("/wiki/Kevin_Bacon")
+links = getLinks("/wiki/Guido_van_Rossum")
 while(len(links) > 0):
 	newArticle = links[random.randint(0, len(links)-1)].attrs["href"]
 	print(newArticle)
